@@ -104,6 +104,10 @@ location.reload();
 
   - Place a custom SVG at `assets/logo-airline.svg` (recommended height ~32px, width ≤120px). If the logo file is missing, the ticket shows the text fallback with the airline name.
 
+### Branding (DBS Mira logo on landing)
+- Place your school logo at `assets/dbs-mira-logo.svg` (preferred) or `assets/dbs-mira-logo.png`.
+- Recommended sizes: square or landscape, ~600–1200 px wide, transparent background if possible. The app auto-scales to ~220px desktop and ~160px mobile, preserving aspect ratio.
+
 ### Deploy to GitHub Pages
 1) Commit and push all files to the `main` branch of your repository.
 2) In GitHub: Settings → Pages.

@@ -2,12 +2,16 @@
    Plain CSS; UK English spellings; touch-friendly defaults */
 
 :root {
-  --bg: #0b132b;
-  --panel: #1c2541;
-  --accent: #ffcc00; /* high contrast yellow */
-  --text: #ffffff;
-  --muted: #a7b1c2;
-  --focus: #00d4ff;
+  --bg:#0f172a;
+  --panel:#1e293b;
+  --accent:#e4c66b;
+  --text:#f8fafc;
+  --muted:#cbd5e1;
+  --focus:#99b7ff;
+  --choice-bg:#e9edf6;
+  --choice-text:#0f172a;
+  --progress-track:#475569;
+  --progress-fill:#22c55e;
 }
 
 * { box-sizing: border-box; }
@@ -56,7 +60,7 @@ main#app {
   min-width: 44px;
   border-radius: 10px;
   background: var(--accent);
-  color: #222;
+  color: var(--accent-text, #0f172a);
   font-weight: 700;
   text-decoration: none;
   border: none;
@@ -81,7 +85,7 @@ main#app {
 
 /* Ensure links and buttons meet WCAG AA contrast when accented */
 a, button { color: inherit; }
-button.cta { color: #222; }
+button.cta { color: var(--accent-text, #0f172a); }
 
 /* Phase 2: Quiz UI */
 .mode-grid {
@@ -113,7 +117,9 @@ button.cta { color: #222; }
 }
 
 .prompt {
-  font-size: clamp(1.1rem, 1vw + 1rem, 1.4rem);
+  color: var(--text);
+  font-size: clamp(20px, 2.8vw, 28px);
+  font-weight: 700;
   margin: 0.25rem 0 0.5rem;
 }
 
@@ -126,8 +132,8 @@ button.cta { color: #222; }
   display: block;
   width: 100%;
   text-align: left;
-  background: #f2f5ff;
-  color: #111;
+  background: var(--choice-bg);
+  color: var(--choice-text);
   border: 2px solid transparent;
   border-radius: 12px;
   padding: 14px 16px;
@@ -159,7 +165,7 @@ button.cta { color: #222; }
 
 .next-btn {
   background: var(--accent);
-  color: #222;
+  color: var(--accent-text, #0f172a);
   border: none;
   border-radius: 12px;
   padding: 14px 18px;
@@ -171,14 +177,14 @@ button.cta { color: #222; }
 
 .progress {
   height: 10px;
-  background: rgba(255,255,255,0.15);
+  background: var(--progress-track);
   border-radius: 999px;
   overflow: hidden;
 }
 .progress .bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+  background: var(--progress-fill);
 }
 
 /* Visible focus for all focusable controls */
@@ -289,6 +295,11 @@ button.cta { color: #222; }
   .bp-wrap { grid-template-columns: 1fr; }
 }
 
+/* Quiz card uses dark tokens for high contrast */
+.card.quiz { background: var(--panel); color: var(--text); }
+.card.quiz h2, .card.quiz .prompt { color: var(--text); }
+.card.quiz .muted { color: var(--muted); }
+
 /* Phase 6 (enhanced visuals for Y2–3) */
 .quiz.y23 .choice-btn {
   min-height: 64px;
@@ -326,5 +337,27 @@ button.cta { color: #222; }
   text-align: center;
   color: var(--muted);
 }
+
+/* Hero landing */
+.hero {
+  display: grid;
+  gap: 20px;
+  width: min(820px, 92vw);
+  margin: 0 auto;
+  text-align: center;
+}
+.hero .brand { display: grid; place-items: center; }
+.hero .brand img, .hero-logo img { width: 220px; max-width: 50vw; height: auto; }
+@media (max-width: 640px) { .hero .brand img { width: 160px; } }
+.hero-logo { display: grid; place-items: center; margin-bottom: 16px; }
+@media (max-width: 480px) { .hero-logo img { width: 160px; } }
+.hero h1 { font-size: clamp(1.8rem, 2.2vw + 1.4rem, 2.5rem); line-height: 1.2; }
+.hero h2, .hero h3 { font-size: clamp(1.1rem, 1.2vw + 1rem, 1.4rem); color: #e9eef9; margin: 0; }
+.hero .panel { background: rgba(0,0,0,0.25); backdrop-filter: blur(4px); border-radius: 16px; padding: 16px; }
+.hero .actions { display: grid; gap: 12px; grid-template-columns: 1fr; }
+.hero .primary { background: var(--accent); color: #222; border: none; border-radius: 12px; padding: 16px; min-height: 56px; font-weight: 900; font-size: 1.1rem; cursor: pointer; }
+.hero .primary[disabled] { opacity: 0.6; cursor: not-allowed; }
+.hero .primary:hover { filter: brightness(0.95); }
+.hero .primary:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
 

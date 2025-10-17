@@ -73,24 +73,38 @@
     var y23 = data.modes.y2_3;
     var y46 = data.modes.y4_6;
     app.innerHTML = '' +
-      '<section class="card" aria-labelledby="mode-title">' +
-      '  <h2 id="mode-title">Choose your mode</h2>' +
-      '  <div class="mode-grid" role="group" aria-label="Difficulty modes">' +
-      '    <button class="mode-btn" data-mode="y2_3" aria-label="Years 2 to 3 Visual">👧👦 ' + escapeHtml(y23.label) + '</button>' +
-      '    <button class="mode-btn" data-mode="y4_6" aria-label="Years 4 to 6 Standard">🧑‍🎓 ' + escapeHtml(y46.label) + '</button>' +
+      '<section class="hero" aria-labelledby="welcome-title">' +
+      '  <div class="hero-logo" aria-label="Dubai British School Mira logo">' + renderSchoolLogo() + '</div>' +
+      '  <div class="panel">' +
+      '    <h1 id="welcome-title">Welcome to the Dubai British School Mira Spanish Digital Escape Room</h1>' +
+      '    <h2>Choose your mode to begin your journey from DXB to Spain.</h2>' +
+      '  </div>' +
+      '  <div class="actions" role="group" aria-label="Difficulty modes">' +
+      '    <button class="primary mode" id="btn-y23" type="button" data-mode="y2_3" aria-label="Years 2 to 3 Visual">⭐ ' + escapeHtml(y23.label) + '</button>' +
+      '    <button class="primary mode" id="btn-y46" type="button" data-mode="y4_6" aria-label="Years 4 to 6 Standard">⏳ ' + escapeHtml(y46.label) + '</button>' +
       '  </div>' +
       '</section>';
-
-    var buttons = app.querySelectorAll('.mode-btn');
+    console.log('landing: hero rendered');
+    var ready = !!(state.data && state.data.modes);
+    var buttons = app.querySelectorAll('.mode');
+    buttons.forEach(function (btn) { btn.disabled = !ready; });
+    console.log('landing: binding listeners count=', buttons.length, 'ready=', ready);
     buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var key = btn.getAttribute('data-mode');
+      btn.addEventListener('click', function (e) {
+        var key = e.currentTarget.getAttribute('data-mode');
+        console.log('mode click:', key);
+        if (!state.data || !state.data.modes || !state.data.modes[key]) {
+          console.error('mode invalid or data not ready:', key);
+          return;
+        }
+        try { localStorage.setItem('ser_mode', key); } catch (_) {}
         startMode(key);
-      });
+      }, { once: false });
     });
   }
 
   function startMode(modeKey) {
+    console.log('startMode:', modeKey);
     state.modeKey = modeKey;
     state.index = 0;
     state.correctSet = {};
@@ -451,6 +465,18 @@
       out += '<div class="sticker' + (got ? ' got' : '') + '" aria-label="Sticker ' + (i + 1) + (got ? ' collected' : ' not collected') + '">' + emoji + '</div>';
     }
     return out;
+  }
+
+  function renderSchoolLogo() {
+    var svg = 'assets/dbs-mira-logo.svg';
+    var png = 'assets/dbs-mira-logo.png';
+    if (imageStatus[svg] === 'ok') {
+      return '<img src="' + svg + '" alt="Dubai British School Mira logo">';
+    }
+    if (imageStatus[png] === 'ok') {
+      return '<img src="' + png + '" alt="Dubai British School Mira logo">';
+    }
+    return '<strong>Dubai British School Mira</strong>';
   }
 
   function renderLogo(airline) {
