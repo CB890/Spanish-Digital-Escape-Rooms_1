@@ -1,0 +1,38 @@
+{
+  "meta": { "title": "Escape to Spain", "version": "1.0.0" },
+  "modes": {
+    "y2_3": {
+      "label": "Years 2–3 (Visual)",
+      "settings": { "advanceOnAnyAnswer": true, "attemptsBeforeHint": 2 },
+      "items": [
+        { "type": "mcq", "prompt": "Tap the Spanish flag", "choices": ["🇪🇸","🇫🇷","🇩🇪","🇮🇹"], "answer": 0, "hint": "Look for red and yellow with a crest." },
+        { "type": "mcq-image", "prompt": "Where is this monument?", "image": "assets/sagrada-familia.jpg", "choices": ["Barcelona","Paris","Dubai","New York"], "answer": 0, "hint": "It is in Catalonia." },
+        { "type": "mcq-image", "prompt": "Which food is from Spain?", "image": "assets/paella.jpg", "choices": ["Paella","Burger","Sushi","Pizza"], "answer": 0, "hint": "Rice with seafood is common in Valencia." },
+        { "type": "tf",  "prompt": "Spain is in Africa", "answer": false, "explain": "Africa is a different continent.", "hint": "Think of Europe." },
+        { "type": "mcq", "prompt": "What is the capital of Spain?", "choices": ["Madrid","Barcelona","Valencia","Granada"], "answer": 0 },
+        { "type": "mcq", "prompt": "Where is Spain?", "choices": ["🌍 Europe","🌎 America","🌏 Asia"], "answer": 0, "hint": "Think of the continent with France and Portugal." },
+        { "type": "mcq-image", "prompt": "Which football team is from Spain?", "image": "assets/real-madrid.jpg", "choices": ["⚽ Real Madrid","⚽ Manchester United","⚽ PSG","⚽ Juventus"], "answer": 0, "hint": "It plays in La Liga." },
+        { "type": "mcq-image", "prompt": "Where is Spain?", "image": "assets/europe-map.webp", "choices": ["🌍 Europe","🌎 America","🌏 Asia"], "answer": 0, "hint": "Think of the continent with France and Portugal." },
+        { "type": "mcq-image", "prompt": "Which word means “Spanish”?", "image": "assets/espanol.jpg", "choices": ["Español","Français","Deutsch","Italiano"], "answer": 0, "hint": "It starts with E and has a tilde." }
+      ]
+    },
+    "y4_6": {
+      "label": "Years 4–6 (Standard)",
+      "settings": { "advanceOnAnyAnswer": true, "attemptsBeforeHint": 2 },
+      "items": [
+        { "type": "mcq", "prompt": "Spain is in…", "choices": ["Asia","Africa","Europe"], "answer": 2 },
+        { "type": "mcq", "prompt": "What is the capital of Spain?", "choices": ["Madrid","Barcelona","Valencia","Seville"], "answer": 0 },
+        { "type": "mcq", "prompt": "What is the population of Spain?", "choices": ["28 million","48 million","60 million"], "answer": 1 },
+        { "type": "tf",  "prompt": "There are 17 countries in Spain", "answer": false, "explain": "Spain has 17 autonomous communities, not countries." },
+        { "type": "mcq", "prompt": "Which of these is NOT a language spoken in Spain?", "choices": ["Spanish","Catalan","French","Basque"], "answer": 2 },
+        { "type": "mcq-image", "prompt": "Where is this monument?", "image": "assets/sagrada-familia.jpg", "choices": ["Barcelona","Paris","Dubai","New York"], "answer": 0 },
+        { "type": "mcq", "prompt": "Which city celebrates San Fermín (running of the bulls)?", "choices": ["Madrid","Valencia","Pamplona","Seville"], "answer": 2 },
+        { "type": "mcq", "prompt": "Which food is traditional in Spain?", "choices": ["Paella","Pizza","Sushi","Hot dog"], "answer": 0 },
+        { "type": "mcq", "prompt": "Who painted surrealist artworks?", "choices": ["Salvador Dalí","Antonio Banderas","Fernando Alonso","Rosalía"], "answer": 0 },
+        { "type": "mcq", "prompt": "What do people eat at midnight on New Year’s Eve in Spain?", "choices": ["Apples","Grapes","Cake","Chocolate"], "answer": 1 }
+      ]
+    }
+  }
+}
+
+

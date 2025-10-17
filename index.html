@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Escape to Spain</title>
+    <meta name="description" content="Spanish culture digital escape room – two modes for primary years.">
+    <link rel="preload" href="./styles.css" as="style">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header role="banner">
+      <h1>Escape to Spain</h1>
+    </header>
+
+    <main id="app" role="main" tabindex="-1">
+      <!-- App shell populated by app.js -->
+      <noscript>This activity requires JavaScript to run.</noscript>
+    </main>
+
+    <footer role="contentinfo">
+      <p>Spanish Digital Escape Room</p>
+    </footer>
+
+    <!-- Inline fallback for questions (Phase 1) -->
+    <script type="application/json" id="qdata">
+{
+  "meta": { "title": "Escape to Spain", "version": "1.0.0", "gate": "A7", "airline": "Dubai British School Air" },
+  "modes": {
+    "y2_3": {
+      "label": "Years 2–3 (Visual)",
+      "items": [
+        { "type": "mcq", "prompt": "Where is Spain?", "choices": ["Europe","America","Asia"], "answer": 0, "explain": "Spain is in Europe." },
+        { "type": "mcq", "prompt": "Tap the Spanish word that means “Spanish”.", "choices": ["Español","Français","Deutsch","Italiano"], "answer": 0 },
+        { "type": "mcq", "prompt": "Which food is from Spain?", "choices": ["Paella","Burger","Sushi","Pizza"], "answer": 0 },
+        { "type": "tf",  "prompt": "Spain is in Africa", "answer": false, "explain": "Africa is a different continent." },
+        { "type": "mcq", "prompt": "What is the capital of Spain?", "choices": ["Madrid","Barcelona","Valencia","Granada"], "answer": 0 },
+        { "type": "mcq", "prompt": "Which football team is from Spain?", "choices": ["Real Madrid","Manchester United","PSG","Juventus"], "answer": 0 }
+      ]
+    },
+    "y4_6": {
+      "label": "Years 4–6 (Standard)",
+      "items": [
+        { "type": "mcq", "prompt": "Spain is in…", "choices": ["Asia","Africa","Europe"], "answer": 2 },
+        { "type": "tf",  "prompt": "There are 17 countries in Spain", "answer": false, "explain": "Spain has 17 autonomous communities, not countries." },
+        { "type": "mcq", "prompt": "Which of these is NOT a language spoken in Spain?", "choices": ["Spanish","Catalan","French","Basque"], "answer": 2 },
+        { "type": "mcq", "prompt": "Which city celebrates San Fermín (running of the bulls)?", "choices": ["Madrid","Valencia","Pamplona","Seville"], "answer": 2 },
+        { "type": "mcq", "prompt": "Which food is traditional in Spain?", "choices": ["Paella","Pizza","Sushi","Hot dog"], "answer": 0 },
+        { "type": "mcq", "prompt": "Who painted surrealist artworks?", "choices": ["Salvador Dalí","Antonio Banderas","Fernando Alonso","Rosalía"], "answer": 0 },
+        { "type": "tf",  "prompt": "People in Spain eat grapes at midnight on New Year’s Eve", "answer": true, "explain": "They eat 12 grapes at midnight for good luck." }
+      ]
+    }
+  }
+}
+    </script>
+    <script src="./app.js" defer></script>
+  </body>
+  </html>
+
+
